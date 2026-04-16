@@ -22,6 +22,8 @@ My system will rely primarily on genre and mood to determine recommendations.
 
 ## How The System Works
 
+![System Screenshot](./images/Screenshot%202026-04-15%20at%2019.50.40.png)
+
 Explain your design in plain language.
 
 Some prompts to answer:
@@ -84,6 +86,9 @@ pip install -r requirements.txt
 ```bash
 python -m src.main
 ```
+
+
+
 
 ### Running Tests
 

@@ -18,9 +18,21 @@ def main() -> None:
     print(f"Loaded songs: {len(songs)}")
 
     # Starter example profile
-    user_prefs = {"genre": "pop", "mood": "happy", "energy": 0.8}
+    user_prefs = {
+        "favorite_genre": "pop",
+        "favorite_mood": "happy",
+        "target_energy": 0.8,
+        "target_tempo_bpm": 120,
+        "target_valence": 0.7,
+        "target_danceability": 0.75,
+        "target_acousticness": 0.3
+    }
 
     recommendations = recommend_songs(user_prefs, songs, k=5)
+
+    print("User Preferences:")
+    for key, value in user_prefs.items():
+        print(f"  {key}: {value}")
 
     print("\nTop recommendations:\n")
     for rec in recommendations:
