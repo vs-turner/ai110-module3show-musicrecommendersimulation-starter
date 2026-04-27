@@ -13,7 +13,7 @@ Your goal is to:
 
 Replace this paragraph with your own summary of what your version does.
 
-Real world systems use both 1) Collaborative filtering and 2) Content-based filtering. Originally, there was no content based filtering and people tried to analyze qualities of the song like genre or mood to calculate what new music people would like. Eventually, recommender systems were improved by realizing that user data also informs what people will like, with patterns that are not easily extracted from other aspects of the songs on their own. User behavior triggers recommendations for collaborative filtering, while content based filtering uses more granular characteristics or classifications of the songs to calculate similarity to a person's tastes or current listens.
+Real world systems use both 1) Collaborative filtering and 2) Content-based filtering. Originally, there was no contensst based filtering and people tried to analyze qualities of the song like genre or mood to calculate what new music people would like. Eventually, recommender systems were improved by realizing that user data also informs what people will like, with patterns that are not easily extracted from other aspects of the songs on their own. User behavior triggers recommendations for collaborative filtering, while content based filtering uses more granular characteristics or classifications of the songs to calculate similarity to a person's tastes or current listens.
 
 My system will rely primarily on genre and mood to determine recommendations.
 
@@ -36,21 +36,9 @@ Some prompts to answer:
 
 You can include a simple diagram or bullet list if helpful.
 
-Example profile:
-
-user_profile = {
-    "favorite_genre": "lofi",
-    "favorite_mood": "chill",
-    "target_energy": 0.45,
-    "target_tempo_bpm": 75,
-    "target_valence": 0.60,
-    "target_danceability": 0.60,
-    "target_acousticness": 0.80,
-}
+----------
 
 Here is the scoring system as an equation: 
-
-
 score =
 2.0·I(song.genre == user.favorite_genre)
 
@@ -63,6 +51,26 @@ score =
 
 Some potential biases are overindexing on genre and mood. 
 Also, if songs.csv has more songs from a certain genre or mood, those will appear more often regardless of the goodness of fit to a user because they are just more numerous.
+
+Example profile:
+
+user_profile = {
+    "favorite_genre": "lofi",
+    "favorite_mood": "chill",
+    "target_energy": 0.45,
+    "target_tempo_bpm": 75,
+    "target_valence": 0.60,
+    "target_danceability": 0.60,
+    "target_acousticness": 0.80,
+}
+
+
+#### Step 1: Stress Test with Diverse Profiles
+
+![Description](testuser1.png)
+![Description](testuser2.png)
+![Description](testuser3.png)
+
 
 ## Getting Started
 
@@ -86,8 +94,6 @@ pip install -r requirements.txt
 ```bash
 python -m src.main
 ```
-
-
 
 
 ### Running Tests
