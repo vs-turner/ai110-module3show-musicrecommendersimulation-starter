@@ -124,21 +124,8 @@ def score_song(user_prefs: Dict, song: Dict) -> Tuple[float, List[str]]:
 
     return (score, reasons)
 
-    # Danceability (weight: 0.6)
-    dance_diff = abs(song["danceability"] - user_prefs["target_danceability"])
-    dance_score = 0.6 * (1 - dance_diff)
-    score += dance_score
-    reasons.append(f"Danceability match (+{dance_score:.2f})")
-
-    # Acousticness (weight: 0.5)
-    acoustic_diff = abs(song["acousticness"] - user_prefs["target_acousticness"])
-    acoustic_score = 0.5 * (1 - acoustic_diff)
-    score += acoustic_score
-    reasons.append(f"Acousticness match (+{acoustic_score:.2f})")
-
-    return (score, reasons)
-
 def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tuple[Dict, float, str]]:
+    """
     Recommend the top k songs based on user preferences.
     This function scores all available songs against the user's preferences,
     ranks them by score in descending order, and returns the top k recommendations.
@@ -153,9 +140,6 @@ def recommend_songs(user_prefs: Dict, songs: List[Dict], k: int = 5) -> List[Tup
             - reasons (str): A pipe-separated string of reasons explaining the recommendation
     Note:
         Songs are scored using the score_song function and sorted by score in descending order.
-    """
-    Functional implementation of the recommendation logic.
-    Required by src/main.py
     """
     # Score all songs using list comprehension, then sort by score (descending), then format results
     scored_songs = [
